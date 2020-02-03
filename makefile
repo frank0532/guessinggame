@@ -5,5 +5,5 @@ README.md:
 	echo "Created time: " >> README.md
 	date "+%c" >> README.md
 	echo >> README.md
-	echo "Lines of guessinggame.sh: "
+	echo "Lines of guessinggame.sh: " >> README.md
 	cat guessinggame.sh | wc -l >> README.md 
