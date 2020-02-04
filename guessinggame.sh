@@ -17,7 +17,18 @@ function guess()
 	echo "Guess game begin."
 	while [[ $guess_num -ne 3 ]]
 	do
-		echo "The number of your guessing is wrong, so try it again."
+		if grep "^[[:digit:]]*$" <<< "$guess_num"
+		then
+			if [[ $guess_num -gt 3 ]]
+			then
+				echo "Your guess is too high."
+			else
+				echo "Your guess is too low."
+			fi
+			echo "The number of your guessing is wrong, so try it again."
+		else
+			echo "Your guess is not a number, please try it again."
+		fi
 		alert_guesser
 		get_guess_num
 	done
